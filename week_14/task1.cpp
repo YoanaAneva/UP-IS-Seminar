@@ -23,7 +23,7 @@ struct Student
         cout << name << endl;
         cout << averageScore << endl;
         cout << facultyNumber << endl;
-        cout << hasPassed << endl;
+        cout << (hasPassed ? "Passed" : "Not passed") << endl;
     }
 };
 
@@ -55,11 +55,11 @@ void whoHasPassed(Student n1, Student n2)
 {
     if (n1.hasPassed)
     {
-        cout << n1.name << "has passed" << endl;
+        cout << n1.name << " has passed" << endl;
     }
-    else if (n2.hasPassed)
+    if (n2.hasPassed)
     {
-        cout << n2.name << "has passed" << endl;
+        cout << n2.name << " has passed" << endl;
     }
     else 
     {
@@ -72,17 +72,18 @@ int main()
 {
     Student student[2];
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 2; i++)
     {
         student[i].createStudent();
     }
     cout << endl;
 
-    // compareScores();
-    // compareFacNumbers();
-    // whoHasPassed();
+    compareScores(student[0], student[1]);
+    compareFacNumbers(student[0], student[1]);
+    whoHasPassed(student[0], student[1]);
 
-    for (int i = 0; i < 3; i++)
+    cout << endl;
+    for (int i = 0; i < 2; i++)
     {
         student[i].printStudent();
         cout << endl;
